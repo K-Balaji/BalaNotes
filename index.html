@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./bootstrap.css" />
+    <link rel="icon" href="icon.png" />
+    <title>Bala Notes</title>
+  </head>
+
+  <body>
+    <nav class="navbar sticky-top navbar-dark bg-primary">
+      <a class="navbar-brand">
+        <h3><img src="icon.png" alt="Logo" width="50" /> Bala Notes</h3>
+      </a>
+      <form class="form-inline">
+        <input
+          class="form-control mr-sm-2"
+          id="search_text"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          id="search"
+          class="btn btn-outline-light my-2 my-sm-0"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </nav>
+    <div class="container my-4">
+      <h1 id="welcome"></h1>
+      <br />
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="title">
+              <h5>Title</h5>
+            </label>
+            <input type="text" class="form-control" id="title" />
+            <small id="emailHelp" class="form-text text-muted"
+              >Add a catchy title to your note</small
+            >
+          </div>
+          <h5 class="card-title">Description</h5>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="text"
+              rows="3"
+              placeholder="Add a description to your note (optional)"
+            ></textarea>
+          </div>
+          <span>
+            <button class="btn btn-primary" id="add">Add Note</button>
+            <button class="btn btn-warning" id="clear">Clear Notes</button>
+          </span>
+        </div>
+      </div>
+      <br />
+      <h2 style="color: rgb(21, 13, 114)">Notes</h2>
+      <hr />
+      <div id="notes" class="row container-fluid"></div>
+    </div>
+  </body>
+  <script src="notes.js"></script>
+</html>
