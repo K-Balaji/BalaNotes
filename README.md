@@ -18,8 +18,9 @@ npm start
 ```
 
 ## Technologies used
-- [Electron](https://github.com/electron/electron)
+- <a href="https://github.com/electron/electron" target="_blank">Electron</a>
 - Web Technologies (HTML, CSS, JavaScript)
+- <a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a>
 
 ## Future Plans
 - This app will be cross platform (after I figure out how to get electron to compile my code for MacOS and Linux)
