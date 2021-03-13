@@ -7,16 +7,16 @@ Bala Notes is an open source note taking app. It is licensed under the MIT Licen
 ![Screenshot 2](./screenshots/Screenshot_2.png)
 
 ## Downloads
-- Windows (32-bit and 64-bit) - [Link](https://github.com/K-Balaji/BalaNotes/releases/download/1.0.0/Bala.Notesx64_x86.exe)
+- Windows - [Download Installer](https://github.com/K-Balaji/BalaNotes/releases/download/1.0.0/Bala.Notesx64_x86.exe)
 
 ## Test Locally
-1. Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>. This will install the Node Package Manager.
+1. Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>. This will install the Node Package Manager (NPM) that we will use later.
 2. Download the above repository as a ZIP File.
 3. Extract the ZIP File to a directory of your choice.
 4. Open your terminal and navigate to that directory.
 5. Now enter the following in the terminal - 
 ```sh
-npm install electron --save-dev
+npm install
 npm start
 ```
 
