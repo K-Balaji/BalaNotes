@@ -1,6 +1,6 @@
 # Bala Notes
 ## About
-Bala Notes is an open source note taking app. It is registered under the MIT License.
+Bala Notes is an open source note taking app. It is licensed under the MIT License.
 
 ## Screenshots
 ![Screenshot 1](./screenshots/Screenshot.png)
@@ -26,9 +26,8 @@ npm start
 - <a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a>
 
 ## Future Plans
-- This app will be cross platform (after I figure out how to get electron to compile my code for MacOS and Linux)
-- Apart from this, bugs shall be fixed (if any) and new features shall be added
 - I'll use Tailwind CSS and Tailwind UI instead of Bootstrap
+- Apart from this, bugs shall be fixed (if any) and new features shall be added
 
 ## Contributing
 To contribute to this project, make a pull request.
