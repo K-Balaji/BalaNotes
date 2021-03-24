@@ -1,4 +1,5 @@
-let addButton = document.getElementById("add");
+const addButton = document.getElementById("add");
+const search = document.getElementById("search_text");
 
 function update() {
   let notes = localStorage.getItem("notes");
@@ -57,7 +58,7 @@ document.getElementById("clear").addEventListener("click", function () {
 
 update();
 
-document.getElementById("search").addEventListener("click", function (e) {
+search.onkeyup = (e) => {
   let searchText = document.getElementById("search_text").value.toLowerCase();
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -84,7 +85,7 @@ document.getElementById("search").addEventListener("click", function (e) {
   });
   document.getElementById("notes").innerHTML = content;
   e.preventDefault();
-});
+};
 
 function dele(index) {
   notesArray = JSON.parse(localStorage.getItem("notes"));

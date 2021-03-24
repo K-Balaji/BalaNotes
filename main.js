@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu } = require("electron");
 
 function createWindow() {
   const win = new BrowserWindow({
-    icon: "./icon.png",
+    icon: "./icon.ico",
     title: "Bala Notes",
     webPreferences: {
       nodeIntegration: true,
@@ -10,7 +10,7 @@ function createWindow() {
   });
   win.maximize();
   Menu.setApplicationMenu(new Menu());
-  win.loadFile("index.html");
+  win.loadFile("src/index.html");
 }
 
 app.whenReady().then(createWindow);

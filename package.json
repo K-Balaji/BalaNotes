@@ -1,14 +1,32 @@
 {
   "name": "bala_notes",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Open Source Note Taking App",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --x64 --ia32"
   },
   "author": "K Balaji",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^12.0.1"
+    "electron": "^12.0.1",
+    "electron-builder": "^22.10.5"
+  },
+  "build": {
+    "appId": "com.balaji.bala-notes",
+    "productName": "Bala Notes",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "license": "LICENSE",
+      "shortcutName": "Bala Notes"
+    }
   }
 }
