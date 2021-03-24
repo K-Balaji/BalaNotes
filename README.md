@@ -14,7 +14,7 @@ Bala Notes is an open source note taking app. It is licensed under the MIT Licen
 2. Download the above repository as a ZIP File.
 3. Extract the ZIP File to a directory of your choice.
 4. Open your terminal and navigate to that directory.
-5. Now enter the following in the terminal - 
+5. Now enter the following in the terminal and wait for the dependencies to be installed and the app to launch - 
 ```sh
 npm install
 npm start
@@ -26,7 +26,7 @@ npm start
 - <a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a>
 
 ## Future Plans
-- I'll use Tailwind CSS and Tailwind UI instead of Bootstrap
+- Use of Tailwind CSS and Tailwind UI instead of Bootstrap
 - Apart from this, bugs shall be fixed (if any) and new features shall be added
 
 ## Contributing
