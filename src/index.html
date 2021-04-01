@@ -6,59 +6,82 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="../style/bootstrap.css" />
+    <link rel="stylesheet" href="../style/tailwind.css" />
+    <link rel="stylesheet" href="../style/styles.css" />
     <link rel="icon" href="../icon.ico" />
     <title>Bala Notes</title>
   </head>
 
-  <body>
-    <nav class="navbar sticky-top navbar-dark bg-primary">
-      <a class="navbar-brand">
-        <h3><img src="../icon.ico" alt="Logo" width="50" /> Bala Notes</h3>
-      </a>
-      <form class="form-inline">
-        <input
-          class="form-control mr-sm-2"
-          id="search_text"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-      </form>
+  <body style="background-color: rgb(0, 0, 110)" class="text-white">
+    <nav class="myNav">
+      <ul>
+        <li class="pt-2 pl-4">
+          <img style="float: left" src="../icon.ico" alt="Logo" width="50" />
+          <h3
+            class="font-bold pl-3"
+            style=" float: left; font-size: 2.3rem"
+          >
+            Bala Notes
+          </h3>
+        </li>
+        <li style="float: right; padding-right: 10px; padding-top: 5px">
+          <form class="pt-2">
+            <input
+              class="rounded-xl search"
+              id="search_text"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+        </li>
+      </ul>
     </nav>
-    <div class="container my-4">
+    <div class="pr-60 pl-60 py-3">
       <h1 id="welcome"></h1>
       <br />
-      <div class="card">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="title">
-              <h5>Title</h5>
-            </label>
-            <input type="text" class="form-control" id="title" />
-            <small id="emailHelp" class="form-text text-muted"
-              >Add a catchy title to your note</small
-            >
+      <div class="rounded-2xl bg-gradient-to-r from-purple-600 to-red-600 text-white">
+        <div class="p-6">
+          <div>
+            <h5 class="text-2xl pb-3 font-semibold">Title</h5>
+            <input
+              type="text"
+              class="search"
+              id="title"
+              placeholder="Add a catchy title to your note"
+            />
           </div>
-          <h5 class="card-title">Description</h5>
-          <div class="form-group">
-            <textarea
-              class="form-control"
-              id="text"
-              rows="3"
-              placeholder="Add a description to your note (optional)"
-            ></textarea>
+          <div class="pt-6">
+            <h5 class="font-semibold text-2xl pb-3">Description</h5>
+            <div class="pb-4">
+              <textarea
+                class="search"
+                style="height: 100px"
+                id="text"
+                rows="3"
+                placeholder="Add a description to your note (optional)"
+              ></textarea>
+            </div>
           </div>
           <span>
-            <button class="btn btn-primary" id="add">Add Note</button>
-            <button class="btn btn-warning" id="clear">Clear Notes</button>
+            <button
+              class="font-semibold hover:shadow-xl hover:bg-blue-500 bg-blue-700 p-3 rounded-lg"
+              id="add"
+            >
+              Add Note
+            </button>
+            <button
+              class="font-semibold hover:shadow-xl hover:bg-red-500 bg-red-700 p-3 rounded-lg"
+              id="clear"
+            >
+              Clear Notes
+            </button>
           </span>
         </div>
       </div>
       <br />
-      <h2 style="color: rgb(21, 13, 114)">Notes</h2>
-      <hr />
-      <div id="notes" class="row container-fluid"></div>
+      <h2 class="font-bold text-3xl pb-2">Notes</h2>
+      <div id="notes" class="fill-row text-xl"></div>
     </div>
   </body>
   <script src="./notes.js"></script>

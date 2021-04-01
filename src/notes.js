@@ -1,6 +1,21 @@
 const addButton = document.getElementById("add");
 const search = document.getElementById("search_text");
 
+function generateCard(element0, element1, index) {
+  const str = element1 !== "" ? "pb-9" : "pb-16";
+  return `<div class="my-3 mx-3 border-0 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 box" style="width: 20.5rem">
+        <div class="p-3 text-body">
+          <div class="${str}">
+            <h5 class="text-white font-bold">${element0}</h5>
+            <p class="text-white">
+             ${element1}
+            </p>
+          </div>
+        </div>
+        <div class="p-3"><button class="text-base hover:shadow-lg hover:bg-purple-700 bg-purple-800 p-2 rounded-lg text-white" onclick="dele(${index})">Delete</button></div>
+      </div>`;
+}
+
 function update() {
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -10,20 +25,12 @@ function update() {
   }
   let str = "";
   notesArray.forEach(function (element, index) {
-    str += `<div class="noteBox my-3 mx-3 card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${element[0]}</h5>
-          <p class="card-text">
-            ${element[1]}
-          </p>
-          <button class="btn btn-danger" onclick="dele(${index})">Delete</button>
-        </div>
-      </div>`;
+    str += generateCard(element[0], element[1], index);
   });
   document.getElementById("notes").innerHTML = str;
   if (str == "") {
     document.getElementById("notes").innerHTML =
-      '<small id="emailHelp" class="form-text text-muted" style=""><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
+      '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
   }
 }
 
@@ -72,15 +79,7 @@ search.onkeyup = (e) => {
       element[0].toLowerCase().includes(searchText.toLowerCase()) ||
       element[1].toLowerCase().includes(searchText.toLowerCase())
     ) {
-      content += `<div class="noteBox my-3 mx-3 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">${element[0]}</h5>
-              <p class="card-text">
-                ${element[1]}
-              </p>
-              <button class="btn btn-danger" onclick="dele(${index})">Delete</button>
-            </div>
-          </div>`;
+      content += generateCard(element[0], element[1], index);
     }
   });
   document.getElementById("notes").innerHTML = content;
