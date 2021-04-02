@@ -13,10 +13,10 @@ Bala Notes is an open source note taking app. It is licensed under the MIT Licen
 
 ## Downloads
 
-- <img src="./screenshots/windows.png" width="22">  [Windows 32-bit (x86) and 64-bit (x64)](https://github.com/K-Balaji/BalaNotes/releases/download/2.0.0/Bala_Notes_Setup_x86_x64.exe)  (Recommended)
-- <img src="./screenshots/windows.png" width="22">  [Portable App](https://github.com/K-Balaji/BalaNotes/releases/download/2.0.0/Bala_Notes_Portable.exe)
-- <img src="./screenshots/windows.png" width="22">  [MSI Installer 32-bit (x86)](https://github.com/K-Balaji/BalaNotes/releases/download/2.0.0/Bala_Notes_x86.msi) (Experimental)
-- <img src="./screenshots/windows.png" width="22">  [MSI Installer 64-bit (x64)](https://github.com/K-Balaji/BalaNotes/releases/download/2.0.0/Bala_Notes_x64.msi) (Experimental)
+- <img src="./screenshots/windows.png" width="22">  [Windows 32-bit (x86) and 64-bit (x64)](https://github.com/K-Balaji/BalaNotes/releases/download/3.0.0/Bala_Notes_Setup_x86_x64.exe)  (Recommended)
+- <img src="./screenshots/windows.png" width="22">  [Portable App](https://github.com/K-Balaji/BalaNotes/releases/download/3.0.0/Bala_Notes_Portable.exe)
+- <img src="./screenshots/windows.png" width="22">  [MSI Installer 32-bit (x86)](https://github.com/K-Balaji/BalaNotes/releases/download/3.0.0/Bala_Notes_x86.msi) (Experimental)
+- <img src="./screenshots/windows.png" width="22">  [MSI Installer 64-bit (x64)](https://github.com/K-Balaji/BalaNotes/releases/download/3.0.0/Bala_Notes_x64.msi) (Experimental)
 
 ## Test Locally
 
