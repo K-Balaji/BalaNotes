@@ -2,7 +2,7 @@
 
 <img src="./screenshots/banner.png" alt="Banner" height="150"/>
 
-<span>![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow) ![](https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet) ![](https://img.shields.io/static/v1?style=for-the-badge&label=npm&message=v7.7.1&color=blue) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff)</span>
+<span>![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow) [![](https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue)](./LICENSE) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet) ![](https://img.shields.io/static/v1?style=for-the-badge&label=npm&message=v7.7.1&color=blue) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff)</span>
 
 ## About
 
