@@ -33,13 +33,13 @@ npm start
 
 ## Technologies used
 
-- <a href="https://github.com/electron/electron" target="_blank">Electron</a>
+- <a href="https://www.electronjs.org/" target="_blank">Electron</a>
 - Web Technologies (HTML, CSS, JavaScript)
-- <a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a>
+- <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
 
 ## Future Plans
 
-- Use of Tailwind CSS and Tailwind UI instead of Bootstrap
+- App support for Linux OS
 - Apart from this, bugs shall be fixed (if any) and new features shall be added
 
 ## Contributing
