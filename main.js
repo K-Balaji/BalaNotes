@@ -1,28 +1,26 @@
-const { app, BrowserWindow, Menu } = require("electron");
-
+"use strict";
+exports.__esModule = true;
+var electron_1 = require("electron");
 function createWindow() {
-  const win = new BrowserWindow({
-    icon: "./icon.ico",
-    title: "Bala Notes",
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
-  win.maximize();
-  Menu.setApplicationMenu(new Menu());
-  win.loadFile("src/index.html");
+    var win = new electron_1.BrowserWindow({
+        icon: "./icon.ico",
+        title: "Bala Notes",
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    win.maximize();
+    electron_1.Menu.setApplicationMenu(new electron_1.Menu());
+    win.loadFile("src/index.html");
 }
-
-app.whenReady().then(createWindow);
-
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+electron_1.app.whenReady().then(createWindow);
+electron_1.app.on("window-all-closed", function () {
+    if (process.platform !== "darwin") {
+        electron_1.app.quit();
+    }
 });
-
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+electron_1.app.on("activate", function () {
+    if (electron_1.BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
 });
