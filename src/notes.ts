@@ -55,12 +55,12 @@ addButton.addEventListener("click", function (e): void {
   let title: HTMLTextAreaElement = document.getElementById(
     "title"
   ) as HTMLTextAreaElement;
-  if (title.value == "") {
+  if (title.value === "") {
     alert("Please enter a note");
   } else {
     let notes: string = localStorage.getItem("notes");
     let notesArray: Array<Array<string>> = [];
-    if (notes == null) {
+    if (notes === null) {
       notesArray = [];
     } else {
       notesArray = JSON.parse(notes);

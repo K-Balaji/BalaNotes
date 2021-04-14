@@ -13,15 +13,11 @@
 
   <body style="background-color: rgb(0, 0, 110)" class="text-white">
     <nav style="background-color: rgb(0, 0, 110)" class="myNav">
-      <ul>
-        <li class="pt-2 pl-4">
-          <img style="float: left" src="../icon.ico" alt="Logo" width="50" />
-          <h3 class="font-bold pl-3" style="float: left; font-size: 2.3rem">
-            Bala Notes
-          </h3>
-        </li>
-        <li style="float: right; padding-right: 10px; padding-top: 5px">
-          <form class="pt-2">
+      <div class="pt-3 flex justify-between">
+        <div class="pl-4"><img src="../icon.ico" alt="Logo" width="50" /></div>
+        <h3 class="font-bold pl-5 text-4xl">Bala Notes</h3>
+        <div class="pr-4">
+          <form>
             <input
               style="width: 15rem"
               class="rounded-xl search"
@@ -31,8 +27,8 @@
               aria-label="Search"
             />
           </form>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
     <div class="pr-60 pl-60 py-3">
       <h1 id="welcome"></h1>

@@ -9,6 +9,7 @@ function createWindow(): void {
     },
   });
   win.maximize();
+  win.setResizable(false);
   Menu.setApplicationMenu(new Menu());
   win.loadFile("src/index.html");
 }

@@ -10,6 +10,7 @@ function createWindow() {
         }
     });
     win.maximize();
+    win.setResizable(false);
     electron_1.Menu.setApplicationMenu(new electron_1.Menu());
     win.loadFile("src/index.html");
 }

@@ -31,13 +31,13 @@ function update() {
 addButton.addEventListener("click", function (e) {
     var addText = document.getElementById("text");
     var title = document.getElementById("title");
-    if (title.value == "") {
+    if (title.value === "") {
         alert("Please enter a note");
     }
     else {
         var notes = localStorage.getItem("notes");
         var notesArray = [];
-        if (notes == null) {
+        if (notes === null) {
             notesArray = [];
         }
         else {
