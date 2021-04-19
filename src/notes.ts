@@ -31,19 +31,21 @@ function updateTheme(): void {
     document.getElementById("html").setAttribute("class", "");
   } else if (theme == "light") {
     document.getElementById("html").setAttribute("class", "");
+  } else {
+    throw Error("unrecognizedThemeValue");
   }
 }
 
 function update(): void {
   let notes: string = localStorage.getItem("notes");
-  let notesArray = [];
+  let notesArray: Array<Array<string>> = [];
   if (notes === null) {
     notesArray = [];
   } else {
     notesArray = JSON.parse(notes);
   }
   let str: string = "";
-  notesArray.forEach(function (element, index) {
+  notesArray.forEach(function (element: string[], index: number) {
     str += generateCard(element[0], element[1], index);
   });
   document.getElementById("notes").innerHTML = str;
@@ -62,7 +64,7 @@ themeButton.addEventListener("click", (): void => {
   updateTheme();
 });
 
-addButton.addEventListener("click", function (e): void {
+addButton.addEventListener("click", function (e: MouseEvent): void {
   let addText: HTMLTextAreaElement = document.getElementById(
     "text"
   ) as HTMLTextAreaElement;
@@ -99,7 +101,7 @@ document.getElementById("clear").addEventListener("click", function (): void {
 update();
 updateTheme();
 
-search.onkeyup = (e): void => {
+search.onkeyup = (e: KeyboardEvent): void => {
   let searchText: string = (document.getElementById(
     "search_text"
   ) as HTMLTextAreaElement).value.toLowerCase();

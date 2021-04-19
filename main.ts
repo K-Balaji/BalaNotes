@@ -1,7 +1,9 @@
-import { app, BrowserWindow, Menu } from "electron";
+const { app, BrowserWindow, Menu } = require("electron");
+
+let win: typeof BrowserWindow;
 
 function createWindow(): void {
-  const win: BrowserWindow = new BrowserWindow({
+  win = new BrowserWindow({
     icon: "./icon.ico",
     title: "Bala Notes",
     webPreferences: {

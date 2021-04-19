@@ -16,6 +16,9 @@ function updateTheme() {
     else if (theme == "light") {
         document.getElementById("html").setAttribute("class", "");
     }
+    else {
+        throw Error("unrecognizedThemeValue");
+    }
 }
 function update() {
     var notes = localStorage.getItem("notes");
