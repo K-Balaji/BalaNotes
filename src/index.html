@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="" id="html">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,22 +11,39 @@
     <title>Bala Notes</title>
   </head>
 
-  <body style="background-color: rgb(0, 0, 110)" class="text-white">
-    <nav style="background-color: rgb(0, 0, 110)" class="myNav">
+  <body class="dark:text-blue-200 dark:dark-blue-background">
+    <nav class="myNav dark:dark-blue-background bg-white">
       <div class="pt-3 flex justify-between">
         <div class="pl-4"><img src="../icon.ico" alt="Logo" width="50" /></div>
         <h3 class="font-bold pl-5 text-4xl">Bala Notes</h3>
-        <div class="pr-4">
-          <form>
+        <div class="pr-4 align-middle">
+          <form class="inline-block pr-3">
             <input
               style="width: 15rem"
-              class="rounded-xl search"
+              class="rounded-xl search dark:bg-gray-600 dark:text-blue-200"
               id="search_text"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
           </form>
+          <div class="inline-block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 pt-2"
+              fill="none"
+              id="theme"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </nav>
@@ -34,14 +51,14 @@
       <h1 id="welcome"></h1>
       <br />
       <div
-        class="rounded-2xl bg-gradient-to-r from-purple-600 to-red-600 text-white"
+        class="rounded-2xl dark:from-indigo-900 dark:to-purple-900 bg-gradient-to-tl from-purple-600 to-pink-600"
       >
         <div class="p-6">
           <div>
             <h5 class="text-2xl pb-3 font-semibold">Title</h5>
             <input
               type="text"
-              class="search"
+              class="search dark:bg-gray-600 dark:text-blue-200"
               id="title"
               placeholder="Add a catchy title to your note"
             />
@@ -50,7 +67,7 @@
             <h5 class="font-semibold text-2xl pb-3">Description</h5>
             <div class="pb-4">
               <textarea
-                class="search"
+                class="search dark:bg-gray-600 dark:text-blue-200"
                 style="height: 100px"
                 id="text"
                 rows="3"
@@ -60,13 +77,13 @@
           </div>
           <span>
             <button
-              class="font-semibold hover:shadow-xl hover:bg-blue-500 bg-blue-700 p-3 rounded-lg"
+              class="font-semibold hover:shadow-xl bg-gray-300 hover:bg-gray-100 dark:hover:bg-blue-900 dark:bg-blue-700 p-3 rounded-lg"
               id="add"
             >
               Add Note
             </button>
             <button
-              class="font-semibold hover:shadow-xl hover:bg-red-500 bg-red-700 p-3 rounded-lg"
+              class="font-semibold hover:shadow-xl bg-red-600 hover:bg-red-500 dark:hover:bg-red-900 dark:bg-red-700 p-3 rounded-lg"
               id="clear"
             >
               Clear Notes

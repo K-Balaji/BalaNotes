@@ -1,4 +1,5 @@
 const addButton = document.getElementById("add");
+const themeButton = document.getElementById("theme");
 const search: HTMLTextAreaElement = document.getElementById(
   "search_text"
 ) as HTMLTextAreaElement;
@@ -8,26 +9,30 @@ function generateCard(
   element1: string,
   index: number
 ): string {
-  return `<div class="my-3 mx-3 border-0 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 box" style="width: 20.5rem">
+  return `<div class="my-3 mx-3 border-0 rounded-xl bg-gradient-to-br box from-yellow-400 to-red-500 dark:from-blue-600 dark:to-pink-600" style="width: 20.5rem">
         <div class="p-3 text-body">
           <div>
-            <h5 class="text-white font-bold">${element0}</h5>
-            <p class="text-white">
+            <h5 class="dark:text-blue-200 font-bold">${element0}</h5>
+            <p class="dark:text-blue-200">
              ${element1}
             </p>
           </div>
         </div>
-        <div class="p-3"><button class="text-base hover:shadow-lg hover:bg-purple-700 bg-purple-800 p-2 rounded-lg text-white" onclick="dele(${index})">Delete</button></div>
+        <div class="p-3"><button class="text-base hover:shadow-lg bg-blue-700  hover:bg-blue-500 dark:hover:bg-purple-600 dark:bg-purple-700 p-2 rounded-lg dark:text-gray-200" onclick="dele(${index})">Delete</button></div>
       </div>`;
 }
 
-search.addEventListener("focusin", (): void => {
-  search.style.width = "25rem";
-});
-
-search.addEventListener("focusout", (): void => {
-  search.style.width = "15rem";
-});
+function updateTheme(): void {
+  let theme: string = JSON.parse(localStorage.getItem("notes_theme"));
+  if (theme == "dark") {
+    document.getElementById("html").setAttribute("class", "dark");
+  } else if (theme === null) {
+    localStorage.setItem("notes_theme", JSON.stringify("light"));
+    document.getElementById("html").setAttribute("class", "");
+  } else if (theme == "light") {
+    document.getElementById("html").setAttribute("class", "");
+  }
+}
 
 function update(): void {
   let notes: string = localStorage.getItem("notes");
@@ -47,6 +52,15 @@ function update(): void {
       '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
   }
 }
+
+themeButton.addEventListener("click", (): void => {
+  if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
+    localStorage.setItem("notes_theme", JSON.stringify("dark"));
+  } else {
+    localStorage.setItem("notes_theme", JSON.stringify("light"));
+  }
+  updateTheme();
+});
 
 addButton.addEventListener("click", function (e): void {
   let addText: HTMLTextAreaElement = document.getElementById(
@@ -83,6 +97,7 @@ document.getElementById("clear").addEventListener("click", function (): void {
 });
 
 update();
+updateTheme();
 
 search.onkeyup = (e): void => {
   let searchText: string = (document.getElementById(
