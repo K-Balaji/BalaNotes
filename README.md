@@ -2,7 +2,7 @@
 
 <img src="./images/banner.png" alt="Banner" height="150"/>
 
-<span>![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow) [![](https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue)](./LICENSE) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet) ![](https://img.shields.io/static/v1?style=for-the-badge&label=node&message=v15.9.0&color=green) ![](https://img.shields.io/static/v1?style=for-the-badge&label=npm&message=v7.8.0&color=blue) ![](https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff)</span>
+<span>![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow) [![](https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue)](./LICENSE) [![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet)](https://www.electronjs.org/) [![](https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff)](https://tailwindcss.com/) </span>
 
 ## About
 
@@ -15,10 +15,9 @@ Bala Notes is an open source note taking app. It is licensed under the MIT Licen
 
 ## Downloads
 
-- <img src="./images/windows.png" width="22"> [Windows 32-bit (x86), 64-bit (x64) and ARM 64-bit (ARM64)](https://github.com/K-Balaji/BalaNotes/releases/download/5.0.0/Bala_Notes_Setup_x86_x64_ARM64.exe) (Recommended)
-- <img src="./images/windows.png" width="22"> [Portable App](https://github.com/K-Balaji/BalaNotes/releases/download/5.0.0/Bala_Notes_Portable.exe)
-- <img src="./images/windows.png" width="22"> [MSI Installer 32-bit (x86)](https://github.com/K-Balaji/BalaNotes/releases/download/5.0.0/Bala_Notes_x86.msi) (Experimental)
-- <img src="./images/windows.png" width="22"> [MSI Installer 64-bit (x64)](https://github.com/K-Balaji/BalaNotes/releases/download/5.0.0/Bala_Notes_x64.msi) (Experimental)
+- <img src="./images/windows.png" width="22"> [Windows 32-bit](https://github.com/K-Balaji/BalaNotes/releases/download/5.5.0/Bala_Notes_Setup_x86.exe) (55.4 MB)
+- <img src="./images/windows.png" width="22"> [Windows 64-bit](https://github.com/K-Balaji/BalaNotes/releases/download/5.5.0/Bala_Notes_Setup_x64.exe) (58.2 MB)
+- <img src="./images/windows.png" width="22"> [Portable App](https://github.com/K-Balaji/BalaNotes/releases/download/5.0.0/Bala_Notes_Portable.exe) (148 MB)
 ## Test Locally (for Windows, MacOS and Linux)
 
 1. Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>. This will install the Node Package Manager (NPM) that we will use later.
