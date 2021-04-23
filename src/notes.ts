@@ -1,5 +1,5 @@
-const addButton = document.getElementById("add");
-const themeButton = document.getElementById("theme");
+const addButton: HTMLElement = document.getElementById("add");
+const themeButton: HTMLElement = document.getElementById("theme");
 const search: HTMLTextAreaElement = document.getElementById(
   "search_text"
 ) as HTMLTextAreaElement;
@@ -19,7 +19,7 @@ function generateCard(
           </div>
         </div>
         <div class="p-3"><button class="text-base hover:shadow-lg bg-blue-700  hover:bg-blue-500 dark:hover:bg-purple-600 dark:bg-purple-700 p-2 rounded-lg dark:text-gray-200" onclick="dele(${index})">Delete</button></div>
-      </div>`;
+      </div>` as string;
 }
 
 function updateTheme(): void {
@@ -45,17 +45,16 @@ function update(): void {
     notesArray = JSON.parse(notes);
   }
   let str: string = "";
-  notesArray.forEach(function (element: string[], index: number) {
+  notesArray.forEach(function (element: Array<string>, index: number) {
     str += generateCard(element[0], element[1], index);
   });
-  document.getElementById("notes").innerHTML = str;
-  if (str === "") {
-    document.getElementById("notes").innerHTML =
-      '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
-  }
+  document.getElementById("notes").innerHTML =
+    str !== ""
+      ? str
+      : '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
 }
 
-themeButton.addEventListener("click", (): void => {
+themeButton.addEventListener("click", (e: MouseEvent): void => {
   if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
     localStorage.setItem("notes_theme", JSON.stringify("dark"));
   } else {
@@ -89,14 +88,16 @@ addButton.addEventListener("click", function (e: MouseEvent): void {
   }
 });
 
-document.getElementById("clear").addEventListener("click", function (): void {
-  let shouldClear: boolean = confirm("Are you sure you want to clear notes?");
-  if (shouldClear) {
-    localStorage.removeItem("notes");
-    document.getElementById("notes").innerHTML = "";
-    update();
-  }
-});
+document
+  .getElementById("clear")
+  .addEventListener("click", function (e: MouseEvent): void {
+    let shouldClear: boolean = confirm("Are you sure you want to clear notes?");
+    if (shouldClear) {
+      localStorage.removeItem("notes");
+      document.getElementById("notes").innerHTML = "";
+      update();
+    }
+  });
 
 update();
 updateTheme();
@@ -105,8 +106,8 @@ search.onkeyup = (e: KeyboardEvent): void => {
   let searchText: string = (document.getElementById(
     "search_text"
   ) as HTMLTextAreaElement).value.toLowerCase();
-  let notes = localStorage.getItem("notes");
-  let notesArray = [];
+  let notes: string = localStorage.getItem("notes");
+  let notesArray: Array<Array<string>> = [];
   if (notes === null) {
     notesArray = [];
   } else {
@@ -115,8 +116,8 @@ search.onkeyup = (e: KeyboardEvent): void => {
   let content: string = "";
   notesArray.forEach(function (element: Array<string>, index: number): void {
     if (
-      element[0].toLowerCase().includes(searchText.toLowerCase()) ||
-      element[1].toLowerCase().includes(searchText.toLowerCase())
+      element[0].toLowerCase().includes(searchText) ||
+      element[1].toLowerCase().includes(searchText)
     ) {
       content += generateCard(element[0], element[1], index);
     }

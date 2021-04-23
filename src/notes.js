@@ -33,13 +33,12 @@ function update() {
     notesArray.forEach(function (element, index) {
         str += generateCard(element[0], element[1], index);
     });
-    document.getElementById("notes").innerHTML = str;
-    if (str === "") {
-        document.getElementById("notes").innerHTML =
-            '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
-    }
+    document.getElementById("notes").innerHTML =
+        str !== ""
+            ? str
+            : '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
 }
-themeButton.addEventListener("click", function () {
+themeButton.addEventListener("click", function (e) {
     if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
         localStorage.setItem("notes_theme", JSON.stringify("dark"));
     }
@@ -70,7 +69,9 @@ addButton.addEventListener("click", function (e) {
         update();
     }
 });
-document.getElementById("clear").addEventListener("click", function () {
+document
+    .getElementById("clear")
+    .addEventListener("click", function (e) {
     var shouldClear = confirm("Are you sure you want to clear notes?");
     if (shouldClear) {
         localStorage.removeItem("notes");
@@ -92,8 +93,8 @@ search.onkeyup = function (e) {
     }
     var content = "";
     notesArray.forEach(function (element, index) {
-        if (element[0].toLowerCase().includes(searchText.toLowerCase()) ||
-            element[1].toLowerCase().includes(searchText.toLowerCase())) {
+        if (element[0].toLowerCase().includes(searchText) ||
+            element[1].toLowerCase().includes(searchText)) {
             content += generateCard(element[0], element[1], index);
         }
     });
