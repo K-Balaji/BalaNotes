@@ -1,25 +1,36 @@
-var _a = require("electron"), app = _a.app, BrowserWindow = _a.BrowserWindow, Menu = _a.Menu;
-var win;
+"use strict";
+exports.__esModule = true;
+var electron_1 = require("electron");
+var ipc = electron_1.ipcMain;
 function createWindow() {
-    win = new BrowserWindow({
+    var win = new electron_1.BrowserWindow({
         icon: "./icon.ico",
         title: "Bala Notes",
+        frame: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools: false,
+            contextIsolation: false
         }
     });
     win.maximize();
-    Menu.setApplicationMenu(new Menu());
+    electron_1.Menu.setApplicationMenu(new electron_1.Menu());
     win.loadFile("src/index.html");
+    ipc.on("close", function () {
+        win.close();
+    });
+    ipc.on("min", function () {
+        win.minimize();
+    });
 }
-app.whenReady().then(createWindow);
-app.on("window-all-closed", function () {
+electron_1.app.whenReady().then(createWindow);
+electron_1.app.on("window-all-closed", function () {
     if (process.platform !== "darwin") {
-        app.quit();
+        electron_1.app.quit();
     }
 });
-app.on("activate", function () {
-    if (BrowserWindow.getAllWindows().length === 0) {
+electron_1.app.on("activate", function () {
+    if (electron_1.BrowserWindow.getAllWindows().length === 0) {
         createWindow();
     }
 });

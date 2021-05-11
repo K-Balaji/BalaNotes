@@ -2,7 +2,7 @@ var addButton = document.getElementById("add");
 var themeButton = document.getElementById("theme");
 var search = document.getElementById("search_text");
 function generateCard(element0, element1, index) {
-    return "<div class=\"my-3 mx-3 border-0 rounded-xl bg-gradient-to-br box from-yellow-400 to-red-500 dark:from-blue-600 dark:to-pink-600\" style=\"width: 20.5rem\">\n        <div class=\"p-3 text-body\">\n          <div>\n            <h5 class=\"dark:text-blue-200 font-bold\">" + element0 + "</h5>\n            <p class=\"dark:text-blue-200\">\n             " + element1 + "\n            </p>\n          </div>\n        </div>\n        <div class=\"p-3\"><button class=\"text-base hover:shadow-lg bg-blue-700  hover:bg-blue-500 dark:hover:bg-purple-600 dark:bg-purple-700 p-2 rounded-lg dark:text-gray-200\" onclick=\"dele(" + index + ")\">Delete</button></div>\n      </div>";
+    return "<div class=\"my-3 mx-3 border-0 rounded-xl bg-gradient-to-b box from-yellow-400 to-red-500 dark:from-blue-600 dark:to-pink-600\" style=\"width: 20rem\"><div class=\"p-3 text-body\"><div><h5 class=\"dark:text-blue-200 font-bold\">" + element0 + "</h5><p class=\"dark:text-blue-200\">" + element1 + "</p></div></div><div class=\"p-3\"><button class=\"text-base hover:shadow-lg bg-blue-700  hover:bg-blue-500 dark:hover:bg-purple-600 dark:bg-purple-700 p-2 rounded-lg text-gray-200\" onclick=\"dele(" + index + ")\">Delete</button></div></div>";
 }
 function updateTheme() {
     var theme = JSON.parse(localStorage.getItem("notes_theme"));

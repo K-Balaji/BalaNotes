@@ -72,3 +72,11 @@
 .dark .dark\:dark-blue-background {
   background-color: rgb(0, 0, 110);
 }
+
+.dark .dark\:to-blue-background {
+  --tw-gradient-to: rgb(0, 0, 110);
+}
+
+.transform {
+  transform: scaleX(-1);
+}
