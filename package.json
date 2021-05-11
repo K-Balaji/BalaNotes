@@ -1,6 +1,6 @@
 {
-  "name": "bala_notes",
-  "version": "5.0.0",
+  "name": "Bala Notes",
+  "version": "6.0.0",
   "description": "Open Source Note Taking App",
   "main": "main.js",
   "scripts": {
