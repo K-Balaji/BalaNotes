@@ -93,9 +93,9 @@ update();
 updateTheme();
 
 search.onkeyup = (e: KeyboardEvent): void => {
-  let searchText: string = (document.getElementById(
-    "search_text"
-  ) as HTMLTextAreaElement).value.toLowerCase();
+  let searchText: string = (
+    document.getElementById("search_text") as HTMLTextAreaElement
+  ).value.toLowerCase();
   let notes: string = localStorage.getItem("notes");
   let notesArray: Array<Array<string>> = [];
   if (notes === null) {
