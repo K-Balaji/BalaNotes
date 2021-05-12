@@ -1,4 +1,5 @@
 const { ipcRenderer } = require("electron");
+
 const closeButton: HTMLButtonElement = document.getElementById(
   "close"
 ) as HTMLButtonElement;

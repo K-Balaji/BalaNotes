@@ -2,7 +2,7 @@ import { app, BrowserWindow, Menu, ipcMain } from "electron";
 const ipc: typeof ipcMain = ipcMain;
 
 function createWindow(): void {
-  const win = new BrowserWindow({
+  const win: BrowserWindow = new BrowserWindow({
     icon: "./icon.ico",
     title: "Bala Notes",
     frame: false,
@@ -27,13 +27,13 @@ function createWindow(): void {
 
 app.whenReady().then(createWindow);
 
-app.on("window-all-closed", (): void => {
+app.on("window-all-closed", function (): void {
   if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-app.on("activate", (): void => {
+app.on("activate", function (): void {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }

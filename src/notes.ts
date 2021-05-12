@@ -1,5 +1,9 @@
-const addButton: HTMLElement = document.getElementById("add");
-const themeButton: HTMLElement = document.getElementById("theme");
+const addButton: HTMLButtonElement = document.getElementById(
+  "add"
+) as HTMLButtonElement;
+const themeButton: HTMLButtonElement = document.getElementById(
+  "theme"
+) as HTMLButtonElement;
 const search: HTMLTextAreaElement = document.getElementById(
   "search_text"
 ) as HTMLTextAreaElement;
@@ -9,7 +13,48 @@ function generateCard(
   element1: string,
   index: number
 ): string {
-  return `<div class="my-3 mx-3 border-0 rounded-xl bg-gradient-to-b box from-yellow-400 to-red-500 dark:from-blue-600 dark:to-pink-600" style="width: 20rem"><div class="p-3 text-body"><div><h5 class="dark:text-blue-200 font-bold">${element0}</h5><p class="dark:text-blue-200">${element1}</p></div></div><div class="p-3"><button class="text-base hover:shadow-lg bg-blue-700  hover:bg-blue-500 dark:hover:bg-purple-600 dark:bg-purple-700 p-2 rounded-lg text-gray-200" onclick="dele(${index})">Delete</button></div></div>` as string;
+  let card: string = 
+  `<div
+      class="
+        my-3
+        mx-3
+        border-0
+        rounded-xl
+        bg-gradient-to-b
+        box
+        from-yellow-400
+        to-red-500
+        dark:from-blue-600
+        dark:to-pink-600
+      "
+      style="width: 20rem"
+    >
+      <div class="p-3 text-body">
+        <div>
+          <h5 class="dark:text-blue-200 font-bold">${element0}</h5>
+          <p class="dark:text-blue-200">${element1}</p>
+        </div>
+      </div>
+      <div class="p-3">
+        <button
+          class="
+            text-base
+            hover:shadow-lg
+            bg-blue-700
+            hover:bg-blue-500
+            dark:hover:bg-purple-600
+            dark:bg-purple-700
+            p-2
+            rounded-lg
+            text-gray-200
+          "
+          onclick="dele(${index})"
+        >
+          Delete
+        </button>
+      </div>
+    </div>` as string;
+  return card;
 }
 
 function updateTheme(): void {
@@ -35,16 +80,20 @@ function update(): void {
     notesArray = JSON.parse(notes);
   }
   let str: string = "";
-  notesArray.forEach(function (element: Array<string>, index: number) {
-    str += generateCard(element[0], element[1], index);
+  notesArray.forEach(function (elements: Array<string>, index: number) {
+    str += generateCard(elements[0], elements[1], index);
   });
   document.getElementById("notes").innerHTML =
     str !== ""
       ? str
-      : '<small id="emailHelp" class="font-semibold pl-4"><h6>You have no notes, click on Add a Note to create your first note!!!</h6></small>';
+      : (`<small id="emailHelp" class="font-semibold pl-4"
+          ><h6>
+            You have no notes, click on Add a Note to create your first note!!!
+          </h6></small
+        >` as string);
 }
 
-themeButton.addEventListener("click", (e: MouseEvent): void => {
+themeButton.addEventListener("click", function (e: MouseEvent): void {
   if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
     localStorage.setItem("notes_theme", JSON.stringify("dark"));
   } else {
@@ -54,10 +103,10 @@ themeButton.addEventListener("click", (e: MouseEvent): void => {
 });
 
 addButton.addEventListener("click", function (e: MouseEvent): void {
-  let addText: HTMLTextAreaElement = document.getElementById(
+  const addText: HTMLTextAreaElement = document.getElementById(
     "text"
   ) as HTMLTextAreaElement;
-  let title: HTMLTextAreaElement = document.getElementById(
+  const title: HTMLTextAreaElement = document.getElementById(
     "title"
   ) as HTMLTextAreaElement;
   if (title.value === "") {
@@ -92,7 +141,7 @@ document
 update();
 updateTheme();
 
-search.onkeyup = (e: KeyboardEvent): void => {
+search.onkeyup = function (e: KeyboardEvent): void {
   let searchText: string = (
     document.getElementById("search_text") as HTMLTextAreaElement
   ).value.toLowerCase();
