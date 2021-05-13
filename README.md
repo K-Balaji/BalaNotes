@@ -1,12 +1,27 @@
 # Bala Notes
 
-<img src="./images/banner.png" alt="Banner" height="150"/>
+<div align="center">
+  <img src="./images/banner.png" alt="Banner" height="150"/>
+</div>
 
-<span>![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow) [![](https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue)](./LICENSE) [![](https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet)](https://www.electronjs.org/) [![](https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff)](https://tailwindcss.com/) </span>
+<div align="center">
+  <span>
+    <img src="https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Javascript&color=yellow" /> 
+    <a href="./LICENSE">
+      <img src="https://img.shields.io/static/v1?style=for-the-badge&label=license&message=MIT&color=blue" />
+    </a>
+    <a href="https://www.electronjs.org/">
+      <img src="https://img.shields.io/static/v1?style=for-the-badge&label=Made%20with&message=Electron&color=blueviolet" />
+    </a>
+    <a href="https://tailwindcss.com/">
+      <img src="https://img.shields.io/static/v1?style=for-the-badge&label=Uses&message=TailwindCSS&color=009dff" />
+    </a>
+  </span>
+</div>
 
 ## About
 
-Bala Notes is an open source note taking app. It is licensed under the MIT License.
+Bala Notes is an open source note taking app.
 
 ## Screenshots
 
