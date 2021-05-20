@@ -7,10 +7,10 @@ const minButton: HTMLButtonElement = document.getElementById(
   "min"
 ) as HTMLButtonElement;
 
-closeButton.addEventListener("click", function (e: MouseEvent) {
+closeButton.addEventListener("click", function (e: MouseEvent): void {
   ipcRenderer.send("close");
 });
 
-minButton.addEventListener("click", function (e: MouseEvent) {
+minButton.addEventListener("click", function (e: MouseEvent): void {
   ipcRenderer.send("min");
 });

@@ -2,7 +2,7 @@ var addButton = document.getElementById("add");
 var themeButton = document.getElementById("theme");
 var search = document.getElementById("search_text");
 function generateCard(element0, element1, index) {
-    var card = "<div\n      class=\"\n        my-3\n        mx-3\n        border-0\n        rounded-xl\n        bg-gradient-to-b\n        box\n        from-yellow-400\n        to-red-500\n        dark:from-blue-600\n        dark:to-pink-600\n      \"\n      style=\"width: 20rem\"\n    >\n      <div class=\"p-3 text-body\">\n        <div>\n          <h5 class=\"dark:text-blue-200 font-bold\">" + element0 + "</h5>\n          <p class=\"dark:text-blue-200\">" + element1 + "</p>\n        </div>\n      </div>\n      <div class=\"p-3\">\n        <button\n          class=\"\n            text-base\n            hover:shadow-lg\n            bg-blue-700\n            hover:bg-blue-500\n            dark:hover:bg-purple-600\n            dark:bg-purple-700\n            p-2\n            rounded-lg\n            text-gray-200\n          \"\n          onclick=\"dele(" + index + ")\"\n        >\n          Delete\n        </button>\n      </div>\n    </div>";
+    var card = ("<div\n      class=\"\n        my-3\n        mx-3\n        border-0\n        rounded-xl\n        bg-gradient-to-b\n        box\n        from-yellow-400\n        to-red-500\n        dark:from-blue-600\n        dark:to-pink-600\n      \"\n      style=\"width: 20rem\"\n    >\n      <div class=\"p-3 text-body\">\n        <div>\n          <h5 class=\"dark:text-blue-200 font-bold\">" + element0 + "</h5>\n          <p class=\"dark:text-blue-200\">" + element1 + "</p>\n        </div>\n      </div>\n      <div class=\"p-3\">\n        <button\n          class=\"\n            text-base\n            hover:shadow-lg\n            bg-blue-700\n            hover:bg-blue-600\n            dark:hover:bg-purple-600\n            dark:bg-purple-700\n            p-2\n            rounded-lg\n            text-gray-200\n          \"\n          onclick=\"dele(" + index + ")\"\n        >\n          Delete\n        </button>\n      </div>\n    </div>");
     return card;
 }
 function updateTheme() {
@@ -37,7 +37,7 @@ function update() {
     document.getElementById("notes").innerHTML =
         str !== ""
             ? str
-            : "<small id=\"emailHelp\" class=\"font-semibold pl-4\"\n          ><h6>\n            You have no notes, click on Add a Note to create your first note!!!\n          </h6></small\n        >";
+            : ("<small id=\"emailHelp\" class=\"font-semibold pl-4\"\n          ><h6>\n            You have no notes, click on Add a Note to create your first note!!!\n          </h6></small\n        >");
 }
 themeButton.addEventListener("click", function (e) {
     if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
@@ -63,7 +63,8 @@ addButton.addEventListener("click", function (e) {
         else {
             notesArray = JSON.parse(notes);
         }
-        notesArray.push([title.value, addText.value]);
+        var notesCard = [title.value, addText.value];
+        notesArray.push(notesCard);
         localStorage.setItem("notes", JSON.stringify(notesArray));
         addText.value = "";
         title.value = "";
@@ -103,8 +104,7 @@ search.onkeyup = function (e) {
     e.preventDefault();
 };
 function dele(index) {
-    var notesArray = [];
-    notesArray = JSON.parse(localStorage.getItem("notes"));
+    var notesArray = JSON.parse(localStorage.getItem("notes"));
     notesArray.splice(index, 1);
     localStorage.setItem("notes", JSON.stringify(notesArray));
     update();

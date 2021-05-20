@@ -14,7 +14,7 @@ function generateCard(
   index: number
 ): string {
   let card: string = 
-  `<div
+    (`<div
       class="
         my-3
         mx-3
@@ -41,7 +41,7 @@ function generateCard(
             text-base
             hover:shadow-lg
             bg-blue-700
-            hover:bg-blue-500
+            hover:bg-blue-600
             dark:hover:bg-purple-600
             dark:bg-purple-700
             p-2
@@ -53,7 +53,7 @@ function generateCard(
           Delete
         </button>
       </div>
-    </div>` as string;
+    </div>`) as string;
   return card;
 }
 
@@ -80,7 +80,7 @@ function update(): void {
     notesArray = JSON.parse(notes);
   }
   let str: string = "";
-  notesArray.forEach(function (elements: Array<string>, index: number) {
+  notesArray.forEach(function (elements: Array<string>, index: number): void {
     str += generateCard(elements[0], elements[1], index);
   });
   document.getElementById("notes").innerHTML =
@@ -90,7 +90,7 @@ function update(): void {
           ><h6>
             You have no notes, click on Add a Note to create your first note!!!
           </h6></small
-        >` as string);
+        >`) as string;
 }
 
 themeButton.addEventListener("click", function (e: MouseEvent): void {
@@ -119,7 +119,8 @@ addButton.addEventListener("click", function (e: MouseEvent): void {
     } else {
       notesArray = JSON.parse(notes);
     }
-    notesArray.push([title.value, addText.value]);
+    let notesCard: Array<string> = [title.value, addText.value];
+    notesArray.push(notesCard);
     localStorage.setItem("notes", JSON.stringify(notesArray));
     addText.value = "";
     title.value = "";
@@ -166,8 +167,9 @@ search.onkeyup = function (e: KeyboardEvent): void {
 };
 
 function dele(index: number): void {
-  let notesArray: Array<string> = [];
-  notesArray = JSON.parse(localStorage.getItem("notes"));
+  let notesArray: Array<string> = JSON.parse(
+    localStorage.getItem("notes")
+  ) as Array<string>;
   notesArray.splice(index, 1);
   localStorage.setItem("notes", JSON.stringify(notesArray));
   update();

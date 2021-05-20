@@ -1,5 +1,13 @@
-import { app, BrowserWindow, Menu, ipcMain } from "electron";
-const ipc: typeof ipcMain = ipcMain;
+import {
+  app,
+  BrowserWindow,
+  Menu,
+  ipcMain,
+  IpcMain,
+  WebPreferences,
+} from "electron";
+
+const ipc: IpcMain = ipcMain;
 
 function createWindow(): void {
   const win: BrowserWindow = new BrowserWindow({
@@ -8,9 +16,8 @@ function createWindow(): void {
     frame: false,
     webPreferences: {
       nodeIntegration: true,
-      devTools: false,
       contextIsolation: false,
-    },
+    } as WebPreferences,
   });
   win.maximize();
   Menu.setApplicationMenu(new Menu());
@@ -28,7 +35,7 @@ function createWindow(): void {
 app.whenReady().then(createWindow);
 
 app.on("window-all-closed", function (): void {
-  if (process.platform !== "darwin") {
+  if ((process.platform as string) !== "darwin") {
     app.quit();
   }
 });

@@ -9,7 +9,6 @@ function createWindow() {
         frame: false,
         webPreferences: {
             nodeIntegration: true,
-            devTools: false,
             contextIsolation: false
         }
     });
