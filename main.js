@@ -15,11 +15,19 @@ function createWindow() {
     win.maximize();
     electron_1.Menu.setApplicationMenu(new electron_1.Menu());
     win.loadFile("src/index.html");
-    ipc.on("close", function () {
+    ipc.on("close", function (event) {
         win.close();
     });
-    ipc.on("min", function () {
+    ipc.on("min", function (event) {
         win.minimize();
+    });
+    ipc.on("alert", function (event, alert) {
+        electron_1.dialog.showMessageBox(win, {
+            message: alert,
+            type: "info",
+            title: "  Bala Notes",
+            icon: electron_1.nativeImage.createFromPath("./icon.ico")
+        });
     });
 }
 electron_1.app.whenReady().then(createWindow);

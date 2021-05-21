@@ -5,6 +5,9 @@ import {
   ipcMain,
   IpcMain,
   WebPreferences,
+  dialog,
+  IpcMainEvent,
+  nativeImage,
 } from "electron";
 
 const ipc: IpcMain = ipcMain;
@@ -23,12 +26,21 @@ function createWindow(): void {
   Menu.setApplicationMenu(new Menu());
   win.loadFile("src/index.html");
 
-  ipc.on("close", (): void => {
+  ipc.on("close", (event: IpcMainEvent): void => {
     win.close();
   });
 
-  ipc.on("min", (): void => {
+  ipc.on("min", (event: IpcMainEvent): void => {
     win.minimize();
+  });
+
+  ipc.on("alert", (event: IpcMainEvent, alert: string) => {
+    dialog.showMessageBox(win, {
+      message: alert,
+      type: "info",
+      title: "  Bala Notes",
+      icon: nativeImage.createFromPath("./icon.ico"),
+    });
   });
 }
 

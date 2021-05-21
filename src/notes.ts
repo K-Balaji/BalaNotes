@@ -1,3 +1,5 @@
+const { alertDialog } = require("./dialog");
+
 const addButton: HTMLButtonElement = document.getElementById(
   "add"
 ) as HTMLButtonElement;
@@ -14,7 +16,7 @@ function generateCard(
   index: number
 ): string {
   let card: string = 
-    (`<div
+  (`<div
       class="
         my-3
         mx-3
@@ -22,8 +24,8 @@ function generateCard(
         rounded-xl
         bg-gradient-to-b
         box
-        from-yellow-400
-        to-red-500
+        from-blue-500
+        to-gray-300
         dark:from-blue-600
         dark:to-pink-600
       "
@@ -40,10 +42,8 @@ function generateCard(
           class="
             text-base
             hover:shadow-lg
-            bg-blue-700
-            hover:bg-blue-600
-            dark:hover:bg-purple-600
-            dark:bg-purple-700
+            hover:bg-purple-600
+            bg-purple-700
             p-2
             rounded-lg
             text-gray-200
@@ -110,7 +110,7 @@ addButton.addEventListener("click", function (e: MouseEvent): void {
     "title"
   ) as HTMLTextAreaElement;
   if (title.value === "") {
-    alert("Please enter a note");
+    alertDialog("Please enter a note");
   } else {
     let notes: string = localStorage.getItem("notes");
     let notesArray: Array<Array<string>> = [];
