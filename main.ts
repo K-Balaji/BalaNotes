@@ -42,6 +42,18 @@ function createWindow(): void {
       icon: nativeImage.createFromPath("./icon.ico"),
     });
   });
+
+  ipc.on("confirm", async (event: IpcMainEvent, confirm: string) => {
+    let response = await dialog.showMessageBox(win, {
+      message: confirm,
+      type: "question",
+      title: "  Bala Notes",
+      icon: nativeImage.createFromPath("./icon.ico"),
+      buttons: ["Yes", "No"],
+    });
+
+    event.reply("confirm-reply", response["response"]);
+  });
 }
 
 app.whenReady().then(createWindow);

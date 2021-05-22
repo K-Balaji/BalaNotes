@@ -1,11 +1,12 @@
 const { alertDialog } = require("./dialog");
+const { ipcRenderer } = require("electron");
 
 const addButton: HTMLButtonElement = document.getElementById(
   "add"
 ) as HTMLButtonElement;
-const themeButton: HTMLButtonElement = document.getElementById(
+const themeSVG: SVGElement = document.getElementById(
   "theme"
-) as HTMLButtonElement;
+) as unknown as SVGElement;
 const search: HTMLTextAreaElement = document.getElementById(
   "search_text"
 ) as HTMLTextAreaElement;
@@ -15,8 +16,7 @@ function generateCard(
   element1: string,
   index: number
 ): string {
-  let card: string = 
-  (`<div
+  let card: string = `<div
       class="
         my-3
         mx-3
@@ -25,7 +25,7 @@ function generateCard(
         bg-gradient-to-b
         box
         from-blue-500
-        to-gray-300
+        to-green-500
         dark:from-blue-600
         dark:to-pink-600
       "
@@ -53,7 +53,7 @@ function generateCard(
           Delete
         </button>
       </div>
-    </div>`) as string;
+    </div>` as string;
   return card;
 }
 
@@ -61,11 +61,20 @@ function updateTheme(): void {
   let theme: string = JSON.parse(localStorage.getItem("notes_theme"));
   if (theme == "dark") {
     document.getElementById("html").setAttribute("class", "dark");
+    themeSVG.innerHTML =
+      '<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />';
+    themeSVG.setAttribute("class", "h-4 w-4");
   } else if (theme === null) {
     localStorage.setItem("notes_theme", JSON.stringify("light"));
+    themeSVG.innerHTML =
+      '<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />';
     document.getElementById("html").setAttribute("class", "");
+    themeSVG.setAttribute("class", "h-5 w-5");
   } else if (theme == "light") {
     document.getElementById("html").setAttribute("class", "");
+    themeSVG.innerHTML =
+      '<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />';
+    themeSVG.setAttribute("class", "h-5 w-5");
   } else {
     throw Error("unrecognizedThemeValue");
   }
@@ -86,21 +95,23 @@ function update(): void {
   document.getElementById("notes").innerHTML =
     str !== ""
       ? str
-      : (`<small id="emailHelp" class="font-semibold pl-4"
+      : `<small id="emailHelp" class="font-semibold pl-4"
           ><h6>
             You have no notes, click on Add a Note to create your first note!!!
           </h6></small
-        >`) as string;
+        >`;
 }
 
-themeButton.addEventListener("click", function (e: MouseEvent): void {
-  if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
-    localStorage.setItem("notes_theme", JSON.stringify("dark"));
-  } else {
-    localStorage.setItem("notes_theme", JSON.stringify("light"));
-  }
-  updateTheme();
-});
+document
+  .getElementById("themeChange")
+  .addEventListener("click", function (e: MouseEvent): void {
+    if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
+      localStorage.setItem("notes_theme", JSON.stringify("dark"));
+    } else {
+      localStorage.setItem("notes_theme", JSON.stringify("light"));
+    }
+    updateTheme();
+  });
 
 addButton.addEventListener("click", function (e: MouseEvent): void {
   const addText: HTMLTextAreaElement = document.getElementById(
@@ -128,15 +139,17 @@ addButton.addEventListener("click", function (e: MouseEvent): void {
   }
 });
 
+ipcRenderer.on("confirm-reply", (event, response: number): void => {
+  if (response == 0) {
+    localStorage.removeItem("notes");
+    update();
+  }
+});
+
 document
   .getElementById("clear")
   .addEventListener("click", function (e: MouseEvent): void {
-    let shouldClear: boolean = confirm("Are you sure you want to clear notes?");
-    if (shouldClear) {
-      localStorage.removeItem("notes");
-      document.getElementById("notes").innerHTML = "";
-      update();
-    }
+    ipcRenderer.send("confirm", "Are you sure you want to clear all notes?");
   });
 
 update();
