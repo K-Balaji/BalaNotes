@@ -31,16 +31,13 @@ Bala Notes is an open source note taking app.
 ![Screenshot 2](./images/Screenshot_2.png)
 
 ## Downloads
-<img src="./images/windows.png" width="22"> Windows
-
 Windows 10
-- [Windows 32-bit](https://github.com/K-Balaji/BalaNotes/releases/download/6.0.0/Bala_Notes_Setup_x86.exe) (53.9 MB)
-- [Windows 64-bit](https://github.com/K-Balaji/BalaNotes/releases/download/6.0.0/Bala_Notes_Setup_x64.exe) (56.7 MB)
-- [Portable App](https://github.com/K-Balaji/BalaNotes/releases/download/6.0.0/Bala_Notes_Portable.exe) (96.8 MB)
-
-Windows XP to Windows 8 (Experimental)
-- [Windows 32-bit](https://github.com/K-Balaji/BalaNotes/releases/download/5.5.0/Bala_Notes_Setup_Legacy_x86.exe) (31.6 MB)
-- [Windows 64-bit](https://github.com/K-Balaji/BalaNotes/releases/download/5.5.0/Bala_Notes_Setup_Legacy_x64.exe) (38.1 MB)
+- Installers
+     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x86.exe)
+     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x64.exe)
+- Portable
+     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x86.exe)
+     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x64.exe)
 
 ## Test Locally (for Windows, MacOS and Linux)
 
