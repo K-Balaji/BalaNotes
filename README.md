@@ -33,11 +33,11 @@ Bala Notes is an open source note taking app.
 ## Downloads
 Windows 10
 - Installers
-     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x86.exe)
-     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x64.exe)
+     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x86.exe) (54.0 MB)
+     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x64.exe) (56.9 MB)
 - Portable
-     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x86.exe)
-     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x64.exe)
+     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x86.exe) (47.2 MB)
+     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x64.exe) (49.9 MB)
 
 ## Test Locally (for Windows, MacOS and Linux)
 
