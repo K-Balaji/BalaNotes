@@ -52,7 +52,7 @@ function update() {
 }
 document
     .getElementById("themeChange")
-    .addEventListener("click", function (e) {
+    .addEventListener("click", function (_e) {
     if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
         localStorage.setItem("notes_theme", JSON.stringify("dark"));
     }
@@ -61,7 +61,7 @@ document
     }
     updateTheme();
 });
-addButton.addEventListener("click", function (e) {
+addButton.addEventListener("click", function (_e) {
     var addText = document.getElementById("text");
     var title = document.getElementById("title");
     if (title.value === "") {
@@ -84,7 +84,7 @@ addButton.addEventListener("click", function (e) {
         update();
     }
 });
-ipcRenderer.on("confirm-reply", function (event, response) {
+ipcRenderer.on("confirm-reply", function (_event, response) {
     if (response == 0) {
         localStorage.removeItem("notes");
         update();
@@ -92,7 +92,7 @@ ipcRenderer.on("confirm-reply", function (event, response) {
 });
 document
     .getElementById("clear")
-    .addEventListener("click", function (e) {
+    .addEventListener("click", function (_e) {
     ipcRenderer.send("confirm", "Are you sure you want to clear all notes?");
 });
 update();

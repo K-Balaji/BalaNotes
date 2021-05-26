@@ -104,7 +104,7 @@ function update(): void {
 
 document
   .getElementById("themeChange")
-  .addEventListener("click", function (e: MouseEvent): void {
+  .addEventListener("click", function (_e: MouseEvent): void {
     if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
       localStorage.setItem("notes_theme", JSON.stringify("dark"));
     } else {
@@ -113,7 +113,7 @@ document
     updateTheme();
   });
 
-addButton.addEventListener("click", function (e: MouseEvent): void {
+addButton.addEventListener("click", function (_e: MouseEvent): void {
   const addText: HTMLTextAreaElement = document.getElementById(
     "text"
   ) as HTMLTextAreaElement;
@@ -139,7 +139,7 @@ addButton.addEventListener("click", function (e: MouseEvent): void {
   }
 });
 
-ipcRenderer.on("confirm-reply", (event, response: number): void => {
+ipcRenderer.on("confirm-reply", (_event, response: number): void => {
   if (response == 0) {
     localStorage.removeItem("notes");
     update();
@@ -148,7 +148,7 @@ ipcRenderer.on("confirm-reply", (event, response: number): void => {
 
 document
   .getElementById("clear")
-  .addEventListener("click", function (e: MouseEvent): void {
+  .addEventListener("click", function (_e: MouseEvent): void {
     ipcRenderer.send("confirm", "Are you sure you want to clear all notes?");
   });
 
