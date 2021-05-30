@@ -101,3 +101,7 @@ body::-webkit-scrollbar-thumb:hover {
 .transform {
   transform: scaleX(-1);
 }
+
+.cursor {
+  cursor: pointer;
+}

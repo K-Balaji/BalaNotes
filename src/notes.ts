@@ -10,6 +10,9 @@ const themeSVG: SVGElement = document.getElementById(
 const search: HTMLTextAreaElement = document.getElementById(
   "search_text"
 ) as HTMLTextAreaElement;
+const themeChange: HTMLDivElement = document.getElementById(
+  "themeChange"
+) as HTMLDivElement;
 
 function generateCard(
   element0: string,
@@ -102,16 +105,14 @@ function update(): void {
         >`;
 }
 
-document
-  .getElementById("themeChange")
-  .addEventListener("click", function (_e: MouseEvent): void {
-    if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
-      localStorage.setItem("notes_theme", JSON.stringify("dark"));
-    } else {
-      localStorage.setItem("notes_theme", JSON.stringify("light"));
-    }
-    updateTheme();
-  });
+themeChange.addEventListener("click", function (_e: MouseEvent): void {
+  if (JSON.parse(localStorage.getItem("notes_theme")) == "light") {
+    localStorage.setItem("notes_theme", JSON.stringify("dark"));
+  } else {
+    localStorage.setItem("notes_theme", JSON.stringify("light"));
+  }
+  updateTheme();
+});
 
 addButton.addEventListener("click", function (_e: MouseEvent): void {
   const addText: HTMLTextAreaElement = document.getElementById(
