@@ -34,7 +34,6 @@ body::-webkit-scrollbar-thumb:hover {
 .myNav {
   display: block;
   text-align: center;
-  height: 67px;
   line-height: 50px;
   position: sticky;
   top: 0;
@@ -94,14 +93,14 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: rgb(0, 0, 110);
 }
 
-.dark .dark\:to-blue-background {
-  --tw-gradient-to: rgb(0, 0, 110);
-}
-
 .transform {
   transform: scaleX(-1);
 }
 
 .cursor {
   cursor: pointer;
+}
+
+.mt-t {
+  margin-top: 0.18rem;
 }
