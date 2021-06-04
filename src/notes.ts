@@ -21,9 +21,7 @@ function generateCard(
 ): string {
   let card: string = `<div
       class="
-        my-3
-        mx-3
-        border-0
+        m-3
         rounded-xl
         bg-gradient-to-b
         box
@@ -32,7 +30,6 @@ function generateCard(
         dark:from-blue-600
         dark:to-pink-600
       "
-      style="width: 20rem"
     >
       <div class="p-3 text-body">
         <div>

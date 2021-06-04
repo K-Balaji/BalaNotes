@@ -80,6 +80,7 @@ body::-webkit-scrollbar-thumb:hover {
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 0.25rem;
+  width: 31%;
 }
 
 .text-body {
@@ -103,4 +104,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .mt-t {
   margin-top: 0.18rem;
+}
+
+.columns {
+  columns: auto 3;
 }
