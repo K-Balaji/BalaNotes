@@ -1,53 +1,57 @@
-"use strict";
-exports.__esModule = true;
-var electron_1 = require("electron");
-var ipc = electron_1.ipcMain;
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
+
 function createWindow() {
-    var win = new electron_1.BrowserWindow({
-        icon: "./icon.ico",
-        title: "Bala Notes",
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        }
+  const win = new BrowserWindow({
+    icon: "./icon.ico",
+    title: "Bala Notes",
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+  win.maximize();
+  Menu.setApplicationMenu(new Menu());
+  win.loadFile("src/index.html");
+
+  ipcMain.on("close", function (event) {
+    win.close();
+  });
+
+  ipcMain.on("min", function (event) {
+    win.minimize();
+  });
+
+  ipcMain.on("alert", function (event, alert) {
+    dialog.showMessageBox(win, {
+      message: alert,
+      type: "info",
+      title: "  Bala Notes",
     });
-    win.maximize();
-    electron_1.Menu.setApplicationMenu(new electron_1.Menu());
-    win.loadFile("src/index.html");
-    ipc.on("close", function (event) {
-        win.close();
+  });
+
+  ipcMain.on("confirm", async function (event, confirm) {
+    let response = await dialog.showMessageBox(win, {
+      message: confirm,
+      type: "question",
+      title: "  Bala Notes",
+      buttons: ["Yes", "No"],
     });
-    ipc.on("min", function (event) {
-        win.minimize();
-    });
-    ipc.on("alert", function (event, alert) {
-        electron_1.dialog.showMessageBox(win, {
-            message: alert,
-            type: "info",
-            title: "  Bala Notes",
-            icon: electron_1.nativeImage.createFromPath("./icon.ico")
-        });
-    });
-    ipc.on("confirm", async function (event, confirm) {
-        var response = await electron_1.dialog.showMessageBox(win, {
-            message: confirm,
-            type: "question",
-            title: "  Bala Notes",
-            icon: electron_1.nativeImage.createFromPath("./icon.ico"),
-            buttons: ["Yes", "No"]
-        });
-        event.reply("confirm-reply", response["response"]);
-    });
+
+    event.reply("confirm-reply", response["response"]);
+  });
 }
-electron_1.app.whenReady().then(createWindow);
-electron_1.app.on("window-all-closed", function () {
-    if (process.platform !== "darwin") {
-        electron_1.app.quit();
-    }
+
+app.whenReady().then(createWindow);
+
+app.on("window-all-closed", function () {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
-electron_1.app.on("activate", function () {
-    if (electron_1.BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
+
+app.on("activate", function () {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
 });
