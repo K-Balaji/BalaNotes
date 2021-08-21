@@ -25,27 +25,28 @@
 
 Bala Notes is an open source note taking app.
 
-## Screenshots
+## License
 
-![Screenshot 1](./images/Screenshot.png)
-![Screenshot 2](./images/Screenshot_2.png)
+[MIT License](./LICENSE)
 
 ## Downloads
+
 Windows 10
+
 - Installers (Recommended)
-     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x86.exe) (54.0 MB)
-     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x64.exe) (56.9 MB)
+  - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x86.exe) (54.0 MB)
+  - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Setup_x64.exe) (56.9 MB)
 - Portable
-     - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x86.exe) (47.2 MB)
-     - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x64.exe) (49.9 MB)
+  - Windows 32-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x86.exe) (47.2 MB)
+  - Windows 64-bit - [Download](https://github.com/K-Balaji/BalaNotes/releases/download/7.0.0/Bala_Notes_Portable_x64.exe) (49.9 MB)
 
 ## Test Locally (for Windows, MacOS and Linux)
 
-1. Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>. This will install the Node Package Manager (NPM) that we will use later.
-2. Download the above repository as a ZIP File.
-3. Extract the ZIP File to a directory of your choice.
+1. Install the latest version of [Node.js](https://nodejs.org/)
+2. Install repository as [ZIP File](https://github.com/balajiofficial/BalaNotes/archive/refs/heads/main.zip) or [TAR.GZ File](https://github.com/balajiofficial/BalaNotes/archive/refs/heads/main.tar.gz)
+3. Extract the File into a directory.
 4. Open your terminal and navigate to that directory.
-5. Now enter the following in the terminal and wait for the dependencies to be installed and the app to launch -
+5. Now enter the following in the terminal -
 
 ```
 npm install
@@ -54,14 +55,11 @@ npm start
 
 ## Technologies used
 
-- <a href="https://www.electronjs.org/" target="_blank">Electron</a>
+- [Electron](https://www.electronjs.org/)
 - Web Technologies (HTML, CSS, JavaScript)
-- <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Contributing
+## Screenshots
 
-To contribute to this project, make a pull request.
-
-## License
-
-[MIT License](./LICENSE)
+![Screenshot 1](./images/Screenshot.png)
+![Screenshot 2](./images/Screenshot_2.png)
